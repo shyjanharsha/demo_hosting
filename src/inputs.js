@@ -7,9 +7,11 @@ import React from 'react';
  	}
 	render(){
 		return(
-			<div>
-				<input type = 'text' name = 'first_name' placeholder = {this.props.placeholder}/>
-			</div>
+				<div>
+					<input type = 'text' class = {this.props.class} name = {this.props.name} placeholder = {this.props.placeholder} />
+
+				</div>
+
 			)
 	}
 }
