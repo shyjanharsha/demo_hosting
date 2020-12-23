@@ -286,7 +286,7 @@ class Form extends Component {
 	                />
 	                <div className="invalid-feedback">{repeat_password.error}</div>
 	                {passwordfaild && (
-              		<p className="text-danger text-center">
+              		<p className="text-success text-center">
                			 Enter same password
              		 </p>
            			 )}
