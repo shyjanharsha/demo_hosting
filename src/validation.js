@@ -58,11 +58,13 @@ class ValidateFields {
     }
     return false;
   }
-  validaterepeat_password(repeat_password) {
+  validaterepeat_password(password,repeat_password) {
     if (validator.isEmpty(repeat_password)) {
       return 'repeat_password is required';
     } else if (!validator.isLength(repeat_password, { min: 8 })) {
       return 'repeat_password should be minimum 8 characters';
+    }else if(password != repeat_password){
+      return "password must match"
     }
     return false;
   }
