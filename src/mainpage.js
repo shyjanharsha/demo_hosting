@@ -97,7 +97,7 @@ class Form extends Component {
 
     if(repeat_password.value === password.value){
     	console.log(repeat_password.value,password.value)
-    	this.setState({ passwordfaild:false,allFieldsValidated:true});
+    	this.setState({ passwordfaild:false});
     }
     if (repeat_password.value != password.value) 
     {
