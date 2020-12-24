@@ -46,6 +46,7 @@ class Form extends Component {
    */
   handleBlur(validationFunc, evt) {
     const field = evt.target.name;
+    console.log(field)
     // validate onBlur only when validateOnChange for that field is false
     // because if validateOnChange is already true there is no need to validate onBlur
     if (
@@ -95,21 +96,24 @@ class Form extends Component {
     const repeat_passwordError = validateFields.validaterepeat_password(repeat_password.value);
 
 
-    if(repeat_password.value === password.value){
-    	console.log(repeat_password.value,password.value)
+    if(repeat_password.value === password.value && [firsnameError,lastnameError,emailError,passwordError,repeat_passwordError].every(e => e === false)){
+    	// console.log(repeat_password.value,password.value)
     	this.setState({ passwordfaild:false});
+      this.setState({ ...initialState, allFieldsValidated : true });
+      this.showAllFieldsValidated();
     }
-    if (repeat_password.value != password.value) 
-    {
-      // no errors submit the form
-      // console.log('success');
-      // alert("Enter the same password")
-      // clear state and show all fields are validated
-      this.setState({ passwordfaild:true});
+    // if (repeat_password.value != password.value) 
+    // {
+    //   // no errors submit the form
+    //   // console.log('success');
+    //   // alert("Enter the same password")
+    //   // clear state and show all fields are validated
+    //   this.setState({ passwordfaild:true});
 
-      // this.showAllFieldsValidated();
+    //   // this.showAllFieldsValidated();
     
-    } else 
+    // } 
+    else 
     {
       // update the state with errors
       this.setState(state => ({
@@ -141,14 +145,17 @@ class Form extends Component {
         }
       }));
     }
+    if(repeat_password.value != password.value){
+      this.setState({ passwordfaild:true});
+    }
     
   }
 
-  // showAllFieldsValidated() {
-  //   setTimeout(() => {
-  //     this.setState({ allFieldsValidated: false });
-  //   }, 1500);
-  // }
+  showAllFieldsValidated() {
+    setTimeout(() => {
+      this.setState({ allFieldsValidated: false });
+    }, 1500);
+  }
 
   render() {
     const { firsname,lastname, email, password,repeat_password, allFieldsValidated, passwordfaild} = this.state;
