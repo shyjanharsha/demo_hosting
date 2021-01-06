@@ -24,11 +24,7 @@ class Regform extends React.Component {
                         .required('Email is required'),
                     password: Yup.string()
                         .min(6, 'Password must be at least 6 characters')
-                        .required('Password is required')
-                        .matches(
-					      "^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$",
-					      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-					    ),
+                        .required('Password is required'),
                     confirmPassword: Yup.string()
                         .oneOf([Yup.ref('password'), null], 'Passwords must match')
                         .required('Confirm Password is required'),
