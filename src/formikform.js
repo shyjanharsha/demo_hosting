@@ -15,7 +15,8 @@ class Regform extends React.Component {
                 }}
                 validationSchema={Yup.object().shape({
                     firstName: Yup.string()
-                        .required('First Name is required'),
+                        .required('First Name is required')
+                        .min(5, 'firstName must be 5 letters'),
                     lastName: Yup.string()
                         .required('Last Name is required'),
                     email: Yup.string()
@@ -23,10 +24,15 @@ class Regform extends React.Component {
                         .required('Email is required'),
                     password: Yup.string()
                         .min(6, 'Password must be at least 6 characters')
-                        .required('Password is required'),
+                        .required('Password is required')
+                        .matches(
+					      "^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$",
+					      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+					    ),
                     confirmPassword: Yup.string()
                         .oneOf([Yup.ref('password'), null], 'Passwords must match')
                         .required('Confirm Password is required'),
+
 
                 })}
                 // onSubmit={fields => {
