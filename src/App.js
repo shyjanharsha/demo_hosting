@@ -1,8 +1,6 @@
-
 import React from 'react';
-import logo from './logo.png';
-import Form from './mainpage.js';
-
+// import Form from './mainpage.js';
+import Regform from './formikform';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
@@ -11,8 +9,7 @@ function App() {
     <div className="App">
       <div className="container">
         <div className="App-content">
-          <img src={logo} className="App-logo" alt="React" />
-          <Form />
+          <Regform />
         </div>
       </div>
     </div>
