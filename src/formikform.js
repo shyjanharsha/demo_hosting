@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage, } from 'formik';
 import * as Yup from 'yup';
 
 class Regform extends React.Component {
@@ -36,6 +36,7 @@ class Regform extends React.Component {
                 // }}
             >
                 {({ errors, touched }) => (
+
                 	<div className="Form col-md-8 col-lg-6">
                 	<div className="card shadow">
                     <Form id="align">
@@ -47,7 +48,7 @@ class Regform extends React.Component {
                                 <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
-                                <label htmlFor="lastName" class="marginlf" id="space">Last Name</label>
+                                <label htmlFor="lastName" className="marginlf" id="space">Last Name</label>
                                 <Field name="lastName" type="text"  className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
                                 <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
                             </div>
@@ -64,7 +65,7 @@ class Regform extends React.Component {
                                 <ErrorMessage name="password" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
-                                <label htmlFor="confirmPassword" class="marginlf" id = "gap">Confirm Password</label>
+                                <label htmlFor="confirmPassword" className="marginlf" id = "gap">Confirm Password</label>
                                 <Field name="confirmPassword" type="password" id="gap" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
                                 <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
                             </div>
